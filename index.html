@@ -29,36 +29,6 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <div class="modal fade" id="modalLogin">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Anmelden</h4>
-                </div>
-                <form class="modal-body form-horizontal">
-                    <div class="form-group">
-                        <label for="inputName" class="col-sm-2 control-label">Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                        </div>
-                    </div>
-                </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
-                    <button type="button" class="btn btn-primary" onclick="loginComplete()">Anmelden</button>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
 
     <nav class="navbar navbar-material-blue">
         <div class="container-fluid">
@@ -107,16 +77,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a id="downloadLink" download='App.html' onmouseover="downloadFile()">App herunterladen</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auf Gerät spielen<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" onclick="login()">Anmelden</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#" onclick="openDevice()">Uploaden</a></li>
-                            <li><a href="#" id="linkDevice" target="_blank">Link für Gerät</a></li>
-                        </ul>
-                    </li>
-
+                    <li><a href="#" onclick="openDevice()">Auf Gerät laden</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

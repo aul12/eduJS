@@ -160,86 +160,36 @@ function downloadFile(){
 }
 
 function saveFile() {
-    if (fname == null)
-        fname = prompt("Wie soll das Projekt heißen?");
-    if(fname==null && fname.indexOf("example")>-1)
-        return;
-    var hr = new XMLHttpRequest();
-    var url = "server/saveFile.php";
+    if(typeof(Storage) !== "undefined") {
+        if(fname==null)
+            fname = prompt("Wie soll das Projekt heißen?");
 
-    hr.open("POST", url, true);
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    hr.onreadystatechange = function () {
-        if (hr.readyState == 4 && hr.status == 200) {
-            console.log(hr.responseText);
+        if (fname != null) {
+            localStorage.setItem(fname+"/html", editor.document.getBody().getHtml());
+            localStorage.setItem(fname+"/js", codeMirror.getValue());
+            localStorage.setItem(fname+"/app", composeHTML());
         }
-    };
-    hr.send("html=" + encodeURIComponent(editor.document.getBody().getHtml()) +
-    "&js=" + encodeURIComponent(codeMirror.getValue()) + "&fname=" + fname);
+    } else {
+        $.snackbar({content: "Der Browser unterstützt kein Local Storage"});
+    }
 }
 
 function openFile(){
-    if(fname==null)
-        fname = prompt("Wie heißt das Projekt?");
-    if(fname==null)
-        return;
-    var hr = new XMLHttpRequest();
-    var url = "server/openFile.php";
+    if(typeof(Storage) !== "undefined") {
+        if(fname==null)
+            fname = prompt("Wie heißt das Projekt?");
 
-    hr.open("POST", url, true);
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    hr.onreadystatechange = function () {
-        if (hr.readyState == 4 && hr.status == 200) {
-            var response = hr.response.split("#|#|#");
-            editor.document.getBody().setHtml(response[0]);
-            codeMirror.setValue(response[1]);
-            codeMirror.refresh();
+        if (fname != null) {
+            editor.document.getBody().setHtml(localStorage.getItem(fname+"/html"));
+            codeMirror.setValue(localStorage.getItem(fname+"/js"));
         }
-    };
-    hr.send("fname=" + fname);
+    } else {
+        $.snackbar({content: "Der Browser unterstützt kein Local Storage"});
+    }
 
 
 }
 
 function openDevice(){
-    if(fname==null)
-        fname = prompt("Wie soll das Projekt heißen?");
-    if(fname==null)
-        return;
-    var hr = new XMLHttpRequest();
-    var url = "server/openDevice.php";
-
-    hr.open("POST", url, true);
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    hr.onreadystatechange = function(){
-        if(hr.readyState == 4 && hr.status == 200) {
-            console.log(hr.responseText);
-            var lochref = window.location.href.substr(0, window.location.href.length-1);
-            $.snackbar({content: lochref+hr.responseText});
-            document.getElementById("linkDevice").setAttribute("href", lochref+hr.responseText);
-        }
-    };
-    hr.send("html="+encodeURIComponent(composeHTML())+"&fname="+fname);
-}
-
-function login(){
-    console.log("Test");
-    $('#modalLogin').modal();
-}
-
-function loginComplete(){
-    var name = document.getElementById("inputName").value;
-    var pass = document.getElementById("inputPassword").value;
-
-    var hr = new XMLHttpRequest();
-    var url = "server/login.php";
-
-    hr.open("POST", url, true);
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    hr.onreadystatechange = function(){
-        if(hr.readyState == 4 && hr.status == 200) {
-            $.snackbar({content: hr.responseText});
-        }
-    };
-    hr.send("name="+encodeURIComponent(name)+"&pass="+pass);
+    
 }

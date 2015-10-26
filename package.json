@@ -1,0 +1,8 @@
+{
+  "name": "eduJS",
+  "version": "0.1.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron-prebuilt": "^0.34.1"
+  }
+}

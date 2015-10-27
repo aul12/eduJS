@@ -177,10 +177,12 @@ function openDialog(){
         $('#modalFName').modal();
 }
 
-function handleFile() {
+function handleFile(mode) {
     if(fname == null)
         fname = $("#inputFName").val();
 
+    if(mode != undefined)
+        saveMode = mode;
     if(saveMode) {
         try {
             fs.mkdirSync("./save/" + fname);

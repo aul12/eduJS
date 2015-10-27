@@ -70,23 +70,23 @@
                             <li><a onclick="saveDialog()">Speichern</a></li>
                             <li><a onclick="openDialog()">Öffnen</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a onclick="fname=null;saveFile()">Speichern als...</a></li>
-                            <li><a onclick="fname=null;openFile()">Andere Datei öffnen</a></li>
+                            <li><a onclick="fname=null;saveDialog()">Speichern als...</a></li>
+                            <li><a onclick="fname=null;openDialog()">Andere Datei öffnen</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beispiele<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="fname='exampleButton';openFile()">Button</a></li>
-                            <li><a onclick="fname='exampleInput';openFile()">Input</a></li>
-                            <li><a onclick="fname='exampleTextarea';openFile()">Textarea</a></li>
-                            <li><a onclick="fname='exampleSnackbar';openFile()">Snackbar</a></li>
+                            <li><a onclick="fname='exampleButton';handleFile(0)">Button</a></li>
+                            <li><a onclick="fname='exampleInput';handleFile(0)">Input</a></li>
+                            <li><a onclick="fname='exampleTextarea';handleFile(0)">Textarea</a></li>
+                            <li><a onclick="fname='exampleSnackbar';handleFile(0)">Snackbar</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a onclick="fname='exampleGPS';openFile()">GPS</a></li>
-                            <li><a onclick="fname='exampleBeschleunigung';openFile()">Beschleunigungssensor</a></li>
-                            <li><a onclick="fname='exampleOrientierung';openFile()">Orientierungssensor</a></li>
-                            <li><a onclick="fname='exampleHelligkeit';openFile()">Helligkeitssensor</a></li>
-                            <li><a onclick="fname='exampleNaherung';openFile()">Näherungssensor</a></li>
+                            <li><a onclick="fname='exampleGPS';handleFile(0)">GPS</a></li>
+                            <li><a onclick="fname='exampleBeschleunigung';handleFile(0)">Beschleunigungssensor</a></li>
+                            <li><a onclick="fname='exampleOrientierung';handleFile(0)">Orientierungssensor</a></li>
+                            <li><a onclick="fname='exampleHelligkeit';handleFile(0)">Helligkeitssensor</a></li>
+                            <li><a onclick="fname='exampleNaherung';handleFile(0)">Näherungssensor</a></li>
                         </ul>
                     </li>
                     <li><a href="#design" data-toggle="tab">Designer</a></li>

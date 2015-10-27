@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 var codeMirror;
 var editor;
 
@@ -5,7 +7,9 @@ var fname = null;
 
 var changed = false;
 
-function init() {
+var saveMode = false;
+
+$(function(){
     var textArea = document.getElementById("editArea");
     var previewArea = document.getElementById("previewArea");
 
@@ -110,7 +114,7 @@ function init() {
     element = document.getElementById("fabRun");
     var height = element.getBoundingClientRect().bottom + 10;
     codeMirror.setSize( element.getBoundingClientRect().right + 10, height-offset);
-}
+});
 
 function composeHTML(){
     var txt = "<meta charset=\"UTF-8\">\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>App</title>\n<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css\">\n\n<link rel=\'stylesheet\' href=\'https://cdn.jsdelivr.net/bootstrap.material-design/0.3.0/css/material-fullpalette.min.css\'>\n<link rel=\"stylesheet\" href=\"https://cdn.rawgit.com/FezVrasta/snackbarjs/master/dist/snackbar.min.css\">\n<link rel=\"stylesheet\" href=\"https://cdn.rawgit.com/FezVrasta/snackbarjs/master/themes-css/material.css\">\n\n<script src=\"https://code.jquery.com/jquery-1.11.3.min.js\"></script>\n<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js\"></script>\n\n<script src=\"https://cdn.rawgit.com/FezVrasta/snackbarjs/master/dist/snackbar.min.js\"></script>\n\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/button.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/textArea.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/label.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/image.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/input.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/snackbar.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/location.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/orientation.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/acceleration.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/proximity.js\"></script>\n<script src=\"https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/light.js\"></script>\n<script src=\'https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js\'></script>\n";
@@ -156,25 +160,73 @@ function update() {
 }
 
 function downloadFile(){
-    document.getElementById("downloadLink").setAttribute("href", "data:text/html;charset=utf-8;ascii,"+composeHTML());
+    $("#downloadLink").attr("href", "data:text/html;charset=utf-8;ascii,"+composeHTML());
 }
 
-function saveFile() {
-    if(typeof(Storage) !== "undefined") {
-        if(fname==null)
-            fname = prompt("Wie soll das Projekt heißen?");
+function saveDialog(){
+    saveMode = true;
+    if(fname == null)
+        $('#modalFName').modal();
+}
+
+function openDialog(){
+    saveMode = false;
+    if(fname == null)
+        $('#modalFName').modal();
+}
+
+function handleFile() {
+    if(fname == null)
+        fname = $("#inputFName").val();
+
+    if(saveMode) {
+        try {
+            fs.mkdirSync("./save/" + fname);
+        }
+        catch (e) {
+        }
 
         if (fname != null) {
-            localStorage.setItem(fname+"/html", editor.document.getBody().getHtml());
-            localStorage.setItem(fname+"/js", codeMirror.getValue());
-            localStorage.setItem(fname+"/app", composeHTML());
+            fs.writeFile("./save/" + fname + "/ui.save", editor.document.getBody().getHtml(), function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            });
+            fs.writeFile("./save/" + fname + "/js.save", codeMirror.getValue(), function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            });
+            fs.writeFile("./save/" + fname + "/index.html", composeHTML(), function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            });
         }
-    } else {
-        $.snackbar({content: "Der Browser unterstützt kein Local Storage"});
+    }
+    else{
+        try {
+            fs.readFile("./save/" + fname + "/ui.save", function (err, data) {
+                if (err) throw err;
+                editor.document.getBody().setHtml(String(data));
+            });
+            fs.readFile("./save/" + fname + "/js.save", function (err, data) {
+                if (err) throw err;
+                codeMirror.setValue(String(data));
+            });
+        }
+        catch(e){
+            $.snackbar({content: 'Fehler beim öffnen: "'+e});
+        }
     }
 }
 
 function openFile(){
+
+
     if(typeof(Storage) !== "undefined") {
         if(fname==null)
             fname = prompt("Wie heißt das Projekt?");

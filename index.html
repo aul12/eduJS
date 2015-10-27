@@ -15,7 +15,24 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/snackbarjs/master/themes-css/material.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="init()">
+<body>
+    <div class="modal fade" id="modalFName">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Wie soll das Projekt heißen?</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="inputFName" placeholder="Projektname">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="handleFile()">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <div class="modal fade" id="modalPreview">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -23,6 +40,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Preview</h4>
                 </div>
+                <div class="modal-body">
                     <iframe width="100%" height="500px" class="runArea" id="runArea"></iframe>
                 </div>
             </div><!-- /.modal-content -->
@@ -49,8 +67,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Datei<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="saveFile()">Speichern</a></li>
-                            <li><a onclick="openFile()">Öffnen</a></li>
+                            <li><a onclick="saveDialog()">Speichern</a></li>
+                            <li><a onclick="openDialog()">Öffnen</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a onclick="fname=null;saveFile()">Speichern als...</a></li>
                             <li><a onclick="fname=null;openFile()">Andere Datei öffnen</a></li>
@@ -124,7 +142,7 @@
     <script src="codemirror/addon/lint/javascript-lint.js"></script>
     <script src="codemirror/addon/selection/active-line.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript">try {
         $ = jQuery = module.exports;
         // If you want module.exports to be empty, uncomment:
@@ -133,6 +151,6 @@
 </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdn.rawgit.com/FezVrasta/snackbarjs/master/dist/snackbar.min.js"></script>
-    <script type="text/javascript" src="editor.js"></script>
+    <script src="editor.js"></script>
 </body>
 </html>

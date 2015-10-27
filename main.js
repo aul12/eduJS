@@ -23,15 +23,17 @@ app.on('ready', function() {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600});
 
-  mainWindow.webContents.on('did-start-loading', function() {
+  /*mainWindow.webContents.on('did-start-loading', function() {
     mainWindow.webContents.executeJavaScript("var $ = jQuery = require('jquery'), mainWindow = require('remote').getCurrentWindow();");
-  });
+  });*/
 
   // and load the index.html of the app.
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
   // Open the DevTools.
   //mainWindow.openDevTools();
+
+
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {

@@ -1,3 +1,0 @@
-sds.onClick(function(){
-	console.log("TEst");
-});

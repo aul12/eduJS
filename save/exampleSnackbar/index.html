@@ -25,7 +25,8 @@
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/proximity.js"></script>
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/light.js"></script>
 <script src='https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js'></script>
-<script type='text/javascript'>sds= new Button('sds');window.onload = function(){sds.onClick(function(){
-	console.log("TEst");
-});
-}</script><div class='container'><p><input name="sds" data-cke-saved-name="sds" value="sdsd" type="button" data-cke-editable="1" contenteditable="false" id="sds" class="btn btn-material-blue-500 btn-lg btn-block btn-raised">​<br></p></div>
+<script type='text/javascript'>button= new Button('button');input= new Input('input');window.onload = function(){button.onClick(function(){
+  var text = input.getText();
+  showSnackbar(text);
+})
+}</script><div class='container'><p><input name="button" data-cke-saved-name="button" value="Erstelle eine Snackbar" type="button" data-cke-editable="1" contenteditable="false" id="button" class="btn btn-material-blue-500 btn-lg btn-block btn-raised"><input type="text" data-cke-editable="1" contenteditable="false" data-cke-saved-name="input" value="Text" id="input" class="form-control">​<br></p></div>

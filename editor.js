@@ -110,12 +110,6 @@ $(function(){
     CodeMirror.commands.autocomplete = function (cm) {
         CodeMirror.showHint(cm, CodeMirror.hint.javascript);
     };
-
-    var element = document.getElementById("home");
-    var offset = element.getBoundingClientRect().top;
-    element = document.getElementById("fabRun");
-    var height = element.getBoundingClientRect().bottom + 10;
-    codeMirror.setSize( element.getBoundingClientRect().right + 10, height-offset);
 });
 
 function composeHTML(){
@@ -233,6 +227,10 @@ function openDevice(){
     handleFile();
     var client = adb.createClient();
 
+    var timeout = setTimeout(function(){
+        $.snackbar({content: 'Fehler beim installieren!'});
+    }, 1000);
+
     client.listDevices()
         .then(function(devices) {
             return Promise.map(devices, function(device) {
@@ -243,20 +241,23 @@ function openDevice(){
                                 console.log('[%s] Pushed %d bytes so far',
                                     device.id,
                                     stats.bytesTransferred)
-                            })
+                            });
                             transfer.on('end', function() {
-                                console.log('[%s] Push complete', device.id)
-                                resolve()
-                            })
+                                console.log('[%s] Push complete', device.id);
+                                resolve();
+                                clearTimeout(timeout);
+                                $.snackbar({content: 'Erfolgreich installiert!'});
+                            });
                             transfer.on('error', reject)
                         })
                     })
             })
         })
         .then(function() {
-            console.log('Done pushing to all connected devices')
+            //$.snackbar({content: 'Erfolgreich installiert!'});
         })
         .catch(function(err) {
-            console.error('Something went wrong:', err.stack)
+            $.snackbar({content: 'Fehler beim installieren: '+err});
+            console.log(err);
         })
 }

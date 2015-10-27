@@ -1,5 +1,3 @@
-console.log("dCscsc");
-
-test.onClick(function(){
-	showSnackbar("smcnksm");
+sds.onClick(function(){
+	console.log("TEst");
 });

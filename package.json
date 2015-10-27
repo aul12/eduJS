@@ -4,5 +4,8 @@
   "main": "main.js",
   "devDependencies": {
     "electron-prebuilt": "^0.34.1"
+  },
+  "dependencies": {
+    "adbkit": "^2.3.1"
   }
 }

@@ -1,4 +1,6 @@
 var fs = require('fs');
+var Promise = require('bluebird');
+var adb = require('adbkit');
 
 var codeMirror;
 var editor;
@@ -224,24 +226,35 @@ function handleFile() {
     }
 }
 
-function openFile(){
-
-
-    if(typeof(Storage) !== "undefined") {
-        if(fname==null)
-            fname = prompt("Wie heißt das Projekt?");
-
-        if (fname != null) {
-            editor.document.getBody().setHtml(localStorage.getItem(fname+"/html"));
-            codeMirror.setValue(localStorage.getItem(fname+"/js"));
-        }
-    } else {
-        $.snackbar({content: "Der Browser unterstützt kein Local Storage"});
-    }
-
-
-}
-
 function openDevice(){
-    
+    saveMode = 1;
+    handleFile();
+    var client = adb.createClient();
+
+    client.listDevices()
+        .then(function(devices) {
+            return Promise.map(devices, function(device) {
+                return client.push(device.id, "./save/" + fname + "/index.html", '/sdcard/eduJS/'+fname+'/index.html')
+                    .then(function(transfer) {
+                        return new Promise(function(resolve, reject) {
+                            transfer.on('progress', function(stats) {
+                                console.log('[%s] Pushed %d bytes so far',
+                                    device.id,
+                                    stats.bytesTransferred)
+                            })
+                            transfer.on('end', function() {
+                                console.log('[%s] Push complete', device.id)
+                                resolve()
+                            })
+                            transfer.on('error', reject)
+                        })
+                    })
+            })
+        })
+        .then(function() {
+            console.log('Done pushing to all connected devices')
+        })
+        .catch(function(err) {
+            console.error('Something went wrong:', err.stack)
+        })
 }

@@ -1,6 +1,10 @@
 #eduJs
 A simple WYSIWYG HTML editor with a JS backend for creating simple webapps using HTML5 and Javascript. Mainly for educational purpose.
 
+##Dependencies
+* [http://electron.atom.io/](https://www.npmjs.com/package/electron-packager)
+* [http://electron.atom.io/](http://electron.atom.io/)
+
 ##Installation (for building yourself)
 ```
 sudo apt-get install nodejs

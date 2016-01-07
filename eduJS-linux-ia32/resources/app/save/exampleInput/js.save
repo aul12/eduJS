@@ -1,4 +1,0 @@
-button.onClick(function(){
-  var text = input.getText();
-  button.setText(text);
-});

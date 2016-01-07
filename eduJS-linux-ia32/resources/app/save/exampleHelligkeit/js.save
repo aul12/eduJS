@@ -1,5 +1,0 @@
-button.onClick(function(){
-  light.start(function(brightness){
-    output.setText("Helligkeit: "+brightness);
-  });
-});

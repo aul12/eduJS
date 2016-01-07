@@ -1,3 +1,0 @@
-button1.onClick(function(){
-	showSnackbar("Ich bin Heikes Button!");
-});

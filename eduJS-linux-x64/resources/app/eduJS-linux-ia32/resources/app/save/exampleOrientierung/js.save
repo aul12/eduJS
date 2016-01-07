@@ -1,7 +1,0 @@
-button.onClick(function(){
-  orientation.start(function(x, y, z){
-    output.addLine("X-Drehung: "+x);
-    output.addLine("Y-Drehung: "+y);
-    output.addLine("Z-Drehung: "+z);
-  });
-});

@@ -16,7 +16,6 @@ sudo npm install electron-packager -g
 ##Run it (without compiling):
 ```
 electron .
-
 ```
 
 ##Compiling

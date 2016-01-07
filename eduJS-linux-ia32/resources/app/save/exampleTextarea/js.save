@@ -1,0 +1,8 @@
+buttonAdd.onClick(function(){
+  var text = input.getText();
+  textarea.addLine(text);
+});
+
+buttonDelete.onClick(function(){
+  textarea.clear();
+});

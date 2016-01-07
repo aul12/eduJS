@@ -1,0 +1,14 @@
+button.onClick(function(){
+  acceleration.start(function(accOhneGravitation, accMitGravitation){
+  	output.clear();
+    output.addLine("Daten:");
+    output.addLine("Ohne Gravitation:");
+    output.addLine("X: "+accOhneGravitation.x);
+    output.addLine("Y: "+accOhneGravitation.y);
+    output.addLine("Z: "+accOhneGravitation.z);
+    output.addLine("Mit Gravitation:");
+    output.addLine("X: "+accMitGravitation.x);
+    output.addLine("Y: "+accMitGravitation.y);
+    output.addLine("Z: "+accMitGravitation.z);
+  });
+});

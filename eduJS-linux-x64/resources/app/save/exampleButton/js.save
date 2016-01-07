@@ -1,0 +1,6 @@
+var zaehler = 0;
+
+button1.onClick(function(){
+  zaehler = zaehler + 1;
+  button1.setText(zaehler);
+});

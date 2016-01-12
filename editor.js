@@ -219,6 +219,8 @@ function handleFile(mode) {
                 if (err) throw err;
                 codeMirror.setValue(String(data));
             });
+            $('a[href="#design"]').tab('show');
+            console.log("Test");
         }
         catch(e){
             $.snackbar({content: 'Fehler beim öffnen: "'+e});

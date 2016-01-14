@@ -22,11 +22,10 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600});
-    mainWindow.maximize();
 
-  /*mainWindow.webContents.on('did-start-loading', function() {
-    mainWindow.webContents.executeJavaScript("var $ = jQuery = require('jquery'), mainWindow = require('remote').getCurrentWindow();");
-  });*/
+  mainWindow.maximize();
+
+  mainWindow.setMenu(null);
 
   // and load the index.html of the app.
   mainWindow.loadUrl('file://' + __dirname + '/index.html');

@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="codemirror/addon/hint/show-hint.css">
     <link rel="stylesheet" href="codemirror/theme/material.css">
     <link rel="stylesheet" href="codemirror/addon/lint/lint.css">
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.3.0/css/material-fullpalette.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet"href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
     <link rel="stylesheet" href="snackbar/snackbar.min.css">
     <link rel="stylesheet" href="snackbar/material.css">
     <link rel="stylesheet" href="styles.css">
@@ -110,7 +111,6 @@
                 </div>
                 <div class="jumbotron">
                     <h3>Buttons</h3>
-                    cscs
                     <p><code>button.setText(text)</code></p>
                     mfssldmsk
                     <p><code>button.onClick(callback)</code></p>
@@ -141,16 +141,18 @@
     <script src="codemirror/addon/lint/lint.js"></script>
     <script src="codemirror/addon/lint/javascript-lint.js"></script>
     <script src="codemirror/addon/selection/active-line.js"></script>
+
     <script src="ckeditor/ckeditor.js"></script>
-    <script src="jquery/jquery.min.js"></script>
-    <script type="text/javascript">try {
-        $ = jQuery = module.exports;
-        // If you want module.exports to be empty, uncomment:
-        // module.exports = {};
-    } catch(e) {}
-</script>
-    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        try {
+            $ = jQuery = module.exports;
+        } catch(e) {}
+    </script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="snackbar/snackbar.min.js"></script>
+
     <script src="editor.js"></script>
 </body>
 </html>

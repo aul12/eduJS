@@ -1,3 +1,6 @@
+/eduJS-win32-x64
+/eduJS-win32-ia32
+/eduJS-build-win32.zip
 ### Example user template template
 ### Example user template
 
@@ -8,4 +11,3 @@ out
 gen
 # Created by .ignore support plugin (hsz.mobi)
 
-eduJs-*/

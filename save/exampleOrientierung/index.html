@@ -24,9 +24,12 @@
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/acceleration.js"></script>
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/proximity.js"></script>
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/light.js"></script>
-<script src='https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js'></script>
-<script type='text/javascript'>button= new Button('button');output= new TextArea('output');window.onload = function(){button.onClick(function(){
+<script src='https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js'></script><script type='text/javascript'>
+    document.onerror=function(error, url, line){
+        alert('Fehler: "'+error+'" in Zeile '+line);
+    };button= new Button('button');output= new TextArea('output');window.onload = function(){button.onClick(function(){
   orientation.start(function(x, y, z){
+    output.clear();
     output.addLine("X-Drehung: "+x);
     output.addLine("Y-Drehung: "+y);
     output.addLine("Z-Drehung: "+z);

@@ -24,8 +24,10 @@
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/acceleration.js"></script>
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/proximity.js"></script>
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/light.js"></script>
-<script src='https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js'></script>
-<script type='text/javascript'>button= new Button('button');output= new TextArea('output');window.onload = function(){button.onClick(function(){
+<script src='https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js'></script><script type='text/javascript'>
+    document.onerror=function(error, url, line){
+        alert('Fehler: "'+error+'" in Zeile '+line);
+    };button= new Button('button');output= new TextArea('output');window.onload = function(){button.onClick(function(){
   output.clear();
   output.addLine("Starte GPS...");
   gps.start(function(lat, lon){

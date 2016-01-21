@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/bootstrap.material-design/0.3.0/css/material-fullpalette.min.css'>
+<link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/snackbarjs/master/dist/snackbar.min.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/snackbarjs/master/themes-css/material.css">
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.rawgit.com/FezVrasta/snackbarjs/master/dist/snackbar.min.js"></script>
+
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/button.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/textArea.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/label.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/image.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/input.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/ui/snackbar.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/location.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/orientation.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/acceleration.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/proximity.js"></script>
+<script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/light.js"></script>
+<script src='https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js'></script><script type='text/javascript'>
+    document.onerror=function(error, url, line){
+        alert('Fehler: "'+error+'" in Zeile '+line);
+    };button= new Button('button');output= new Input('output');window.onload = function(){button.onClick(function(proximity){
+  if(proximity == true)
+  	output.setText("Nah");
+  else
+    output.setText("Fern");
+});}</script><div class='container'><p><input name="button" data-cke-saved-name="button" value="Starte Näherungssensor" type="button" data-cke-editable="1" contenteditable="false" id="button" class="btn btn-material-blue-500 btn-lg btn-block btn-raised"><input type="text" data-cke-editable="1" contenteditable="false" data-cke-saved-name="output" id="output" class="form-control"><br></p><div data-cke-hidden-sel="1" data-cke-temp="1" style="position:fixed;top:0;left:-1000px">&nbsp;</div></div>

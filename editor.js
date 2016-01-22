@@ -174,7 +174,7 @@ function saveDialog(){
 function openDialog(){
     saveMode = false;
     if(fname == null)
-        $('#modalFName').modal();
+        $('#modalOpenFile').modal();
 }
 
 function handleFile(mode) {

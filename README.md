@@ -18,7 +18,6 @@ sudo npm install electron-packager -g
 
 ```
 
-
 If you want to run the app on your android device you need the Android-Debugging-Bridge (adb) in your PATH:
 ```
 sudo apt-get install android-tools-adb
@@ -31,6 +30,7 @@ npm install electron-prebuilt -g
 npm install electron-packager -g
 ```
 
+To install the Android-Debugging-Bridge (adb), see [this](http://forum.xda-developers.com/showthread.php?t=2588979) post on XDA.
 
 ##Run it (without compiling):
 ```

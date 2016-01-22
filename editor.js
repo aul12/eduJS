@@ -12,6 +12,8 @@ var changed = false;
 var saveMode = false;
 
 $(function(){
+    $.material.init()
+
     var textArea = document.getElementById("editArea");
     var previewArea = document.getElementById("previewArea");
 

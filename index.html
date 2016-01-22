@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
     <link rel="stylesheet"href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="fonts/roboto.css" type="text/css">
+    <link href="fonts/material-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="snackbar/snackbar.min.css">
     <link rel="stylesheet" href="snackbar/material.css">
     <link rel="stylesheet" href="styles.css">
@@ -49,7 +53,7 @@
     </div><!-- /.modal -->
 
 
-    <nav class="navbar navbar-material-blue">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -125,7 +129,7 @@
         </div>
     </div>
     <div class="fabRun" id="fabRun">
-        <a onclick="update()" class="btn btn-material-deep-orange btn-fab btn-raised mdi-av-play-arrow"></a>
+        <a onclick="update()" class="btn btn-warning btn-fab btn-raised"><i class="material-icons">airplay</i></a>
     </div>
 
     <script src="codemirror/lib/codemirror.js"></script>
@@ -151,6 +155,8 @@
         } catch(e) {}
     </script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
     <script src="snackbar/snackbar.min.js"></script>
 
     <script src="editor.js"></script>

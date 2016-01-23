@@ -179,10 +179,15 @@ function saveDialog(){
 
 function openDialog(){
     saveMode = false;
+<<<<<<< HEAD
     $("#dialogFrage").html("Wie heißt das Projekt?");
     fname = null;
     $("#inputFName").val("");
     $('#modalFName').modal();
+=======
+    if(fname == null)
+        $('#modalOpenFile').modal();
+>>>>>>> 329f5e3e1e0366b6db9f4965cfa5f1829da9c3d8
 }
 
 function handleFile(mode) {
@@ -305,8 +310,13 @@ function installADB(){
         .catch(function(err) {
             $.snackbar({content: 'Fehler beim Installieren: '+err});
             console.log(err);
+<<<<<<< HEAD
         });
 
 
 
 }
+=======
+        })
+}
+>>>>>>> 329f5e3e1e0366b6db9f4965cfa5f1829da9c3d8

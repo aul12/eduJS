@@ -1,6 +1,8 @@
-button.onClick(function(proximity){
-  if(proximity == true)
-  	output.setText("Nah");
-  else
-    output.setText("Fern");
+button.onClick(function(){
+  proximity.start(function(proximity){
+    if(proximity == true)
+      output.setText("Nah");
+    else
+      output.setText("Fern");
+  });
 });

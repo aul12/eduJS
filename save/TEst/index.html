@@ -26,5 +26,16 @@
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/light.js"></script>
 <script src='https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js'></script><script type='text/javascript'>
     document.onerror=function(error, url, line){
-        alert('Fehler: "'+error+'" in Zeile '+line);
-    };window.onload = function(){}</script><div class='container'><p><br></p></div>
+        showSnackbar('Fehler: "'+error+'" in Zeile '+line);
+    };cjskbc= new Button('cjskbc');window.onload = function(){cjskbc.onClick(function(){
+  	showSnackbar("Test2");
+	proximity.start(function(){
+      showSnackbar("TEST");
+    });
+  
+  /*window.addEventListener('userproximity', function(event) {
+    showSnackbar("ABC");
+        //document.getElementById("proximity_text").innerHTML = event.near?"Near":"Far";
+    });*/
+});
+}</script><div class='container'><p><input name="cjskbc" data-cke-saved-name="cjskbc" value="scs" type="button" data-cke-editable="1" contenteditable="false" id="cjskbc" class="btn btn-material-blue-500 btn-lg btn-block btn-raised">​<br></p></div>

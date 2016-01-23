@@ -1,0 +1,11 @@
+cjskbc.onClick(function(){
+  	showSnackbar("Test2");
+	proximity.start(function(){
+      showSnackbar("TEST");
+    });
+  
+  /*window.addEventListener('userproximity', function(event) {
+    showSnackbar("ABC");
+        //document.getElementById("proximity_text").innerHTML = event.near?"Near":"Far";
+    });*/
+});

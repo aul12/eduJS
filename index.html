@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="codemirror/addon/lint/lint.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
-    <link rel="stylesheet"href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
 
     <!-- Material Design fonts -->
     <link rel="stylesheet" href="fonts/roboto.css" type="text/css">
@@ -57,7 +57,7 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-
+    <!--Preview-->
     <div class="modal fade" id="modalPreview">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -72,6 +72,34 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
+    <!--Running Dialog-->
+    <div class="modal fade" id="modalRun">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Gerät zum ausführen wählen</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-group" id="formDevice">
+                        <div class="radio radio-primary">
+                            <label>
+                                <input name="radioDevice" id="optionsRadios1" value="adb"  type="radio"> ADB
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <input name="radioDevice" id="optionsRadios2" value="preview" checked type="radio"> Preview
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnRun">Ausführen1</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -117,7 +145,6 @@
                             <li><a onclick="openExample('exampleNaherung')">Näherungssensor</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="installADB()"><i class="material-icons">airplay</i></a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -146,7 +173,7 @@
         </div>
     </div>
     <div class="fabRun" id="fabRun">
-        <a onclick="update()" class="btn btn-warning btn-fab btn-raised"><i class="material-icons">play_arrow</i></a>
+        <a data-toggle="modal" data-target="#modalRun" class="btn btn-warning btn-fab btn-raised"><i class="material-icons">play_arrow</i></a>
     </div>
 
     <script src="codemirror/lib/codemirror.js"></script>
@@ -179,5 +206,6 @@
     <script src="editor.js"></script>
     <script src="save.js"></script>
     <script src="adb.js"></script>
+    <script src="run.js"></script>
 </body>
 </html>

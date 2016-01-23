@@ -5,7 +5,17 @@ $("#btnRun").click(function(){
             $("#modalPreview").modal();
             break;
         case 'adb':
-            installADB();
+            if(fname == null)
+                $("#modalSave").modal('show');
+            else {
+                fs.writeFile("./save/" + fname + "/index.html", composeHTML(), function (err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    installADB();
+                    console.log("The file was saved!");
+                });
+            }
             break;
     }
 });

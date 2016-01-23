@@ -28,46 +28,42 @@ function launchADB(){
 }
 
 function installADB(){
-    if(fname == null)
-        $("#modalSave").modal('show');
-    else{
-        var client = adb.createClient();
+    var client = adb.createClient();
 
-        var timeout = setTimeout(function(){
-            $.snackbar({content: 'Fehler beim installieren!'});
-        }, 1000);
+    var timeout = setTimeout(function(){
+        $.snackbar({content: 'Fehler beim installieren!'});
+    }, 1000);
 
-        client.listDevices()
-            .then(function(devices) {
-                return Promise.map(devices, function(device) {
-                    return client.push(device.id, "./save/" + fname + "/index.html", '/sdcard/eduJS/'+fname+'/index.html')
-                        .then(function(transfer) {
-                            return new Promise(function(resolve, reject) {
-                                transfer.on('progress', function(stats) {
-                                    console.log('[%s] Pushed %d bytes so far',
-                                        device.id,
-                                        stats.bytesTransferred)
-                                });
-                                transfer.on('end', function() {
-                                    console.log('[%s] Push complete', device.id);
-                                    resolve();
-                                    clearTimeout(timeout);
-                                    showSnackbar('Erfolgreich installiert!');
-                                    launchADB();
+    client.listDevices()
+        .then(function(devices) {
+            return Promise.map(devices, function(device) {
+                return client.push(device.id, "./save/" + fname + "/index.html", '/sdcard/eduJS/'+fname+'/index.html')
+                    .then(function(transfer) {
+                        return new Promise(function(resolve, reject) {
+                            transfer.on('progress', function(stats) {
+                                console.log('[%s] Pushed %d bytes so far',
+                                    device.id,
+                                    stats.bytesTransferred)
+                            });
+                            transfer.on('end', function() {
+                                console.log('[%s] Push complete', device.id);
+                                resolve();
+                                clearTimeout(timeout);
+                                showSnackbar('Erfolgreich installiert!');
+                                launchADB();
 
-                                });
-                                transfer.on('error', reject);
-                            })
+                            });
+                            transfer.on('error', reject);
                         })
-                })
+                    })
             })
-            .then(function() {
-                //$.snackbar({content: 'Erfolgreich installiert!'});
-            })
-            .catch(function(err) {
-                $.snackbar({content: 'Fehler beim Installieren: '+err});
-                console.log(err);
-            });
-    }
+        })
+        .then(function() {
+            //$.snackbar({content: 'Erfolgreich installiert!'});
+        })
+        .catch(function(err) {
+            $.snackbar({content: 'Fehler beim Installieren: '+err});
+            console.log(err);
+        });
 }
 

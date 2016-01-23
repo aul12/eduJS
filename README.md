@@ -24,7 +24,7 @@ sudo apt-get install android-tools-adb
 ```
 
 ### Windows
-Install node.js and npm using the [Installer](nodejs.org)
+Install node.js and npm using the [Installer](http://www.nodejs.org)
 ```
 npm install electron-prebuilt -g
 npm install electron-packager -g

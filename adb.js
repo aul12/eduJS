@@ -20,10 +20,10 @@ function launchADB(){
             })
         })
         .then(function() {
-            showSnackbar('Erfolgreich gestartet')
+            showSnackbar('Erfolgreich gestartet!')
         })
         .catch(function(err) {
-            showSnackbar('Fehler:', err.stack)
+            showSnackbar('Fehler beim starten:', err.stack)
         });
 }
 

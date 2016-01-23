@@ -1,3 +1,0 @@
-btn.onClick(function(){
-	showSnackbar(lfsm);
-});

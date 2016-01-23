@@ -1,11 +1,5 @@
-var fs = require('fs');
-var Promise = require('bluebird');
-var adb = require('adbkit');
-
 var codeMirror;
 var editor;
-
-
 
 var changed = false;
 

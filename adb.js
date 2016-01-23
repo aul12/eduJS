@@ -1,3 +1,6 @@
+var Promise = require('bluebird');
+var adb = require('adbkit');
+
 function launchADB(){
     //adb shell am start -a android.intent.action.VIEW -n org.mozilla.firefox/.App -d 'file:///sdcard/eduJS/exampleInput/index.html'
 

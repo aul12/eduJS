@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 var fname = null;
 
 $("#menuSave").click(function(){
@@ -70,3 +72,19 @@ $("#btnSave").click(function(){
     });
 
 });
+
+function openExample(name){
+    fname = name;
+
+    fs.readFile("./save/" + fname + "/ui.save", function (err, data) {
+        if (err)
+            showSnackbar(err);
+        editor.document.getBody().setHtml(String(data));
+    });
+    fs.readFile("./save/" + fname + "/js.save", function (err, data) {
+        if (err)
+            showSnackbar(err);
+        codeMirror.setValue(String(data));
+    });
+    $('a[href="#design"]').tab('show');
+}

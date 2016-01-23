@@ -90,34 +90,34 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Datei<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">folder</i><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a id="menuSave">Speichern</a></li>
                             <li><a data-toggle="modal" data-target="#modalOpen">Öffnen</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a data-toggle="modal" data-target="#modalOpen">Speichern als...</a></li></ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beispiele<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a onclick="fname='exampleButton';handleFile(0)">Button</a></li>
-                            <li><a onclick="fname='exampleInput';handleFile(0)">Input</a></li>
-                            <li><a onclick="fname='exampleTextarea';handleFile(0)">Textarea</a></li>
-                            <li><a onclick="fname='exampleSnackbar';handleFile(0)">Snackbar</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a onclick="fname='exampleGPS';handleFile(0)">GPS</a></li>
-                            <li><a onclick="fname='exampleBeschleunigung';handleFile(0)">Beschleunigungssensor</a></li>
-                            <li><a onclick="fname='exampleOrientierung';handleFile(0)">Orientierungssensor</a></li>
-                            <li><a onclick="fname='exampleHelligkeit';handleFile(0)">Helligkeitssensor</a></li>
-                            <li><a onclick="fname='exampleNaherung';handleFile(0)">Näherungssensor</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#design" data-toggle="tab">Designer</a></li>
-                    <li><a href="#code" data-toggle="tab">Editor</a></li>
+                    <li><a href="#design" data-toggle="tab"><i class="material-icons">picture_in_picture</i></a></li>
+                    <li><a href="#code" data-toggle="tab"><i class="material-icons">code</i></a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" onclick="installADB()">Auf Gerät laden</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">explore</i><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a onclick="openExample('exampleButton')">Button</a></li>
+                            <li><a onclick="openExample('exampleInput')">Input</a></li>
+                            <li><a onclick="openExample('exampleTextarea')">Textarea</a></li>
+                            <li><a onclick="openExample('exampleSnackbar')">Snackbar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a onclick="openExample('exampleGPS')">GPS</a></li>
+                            <li><a onclick="openExample('exampleBeschleunigung')">Beschleunigungssensor</a></li>
+                            <li><a onclick="openExample('exampleOrientierung')">Orientierungssensor</a></li>
+                            <li><a onclick="openExample('exampleHelligkeit')">Helligkeitssensor</a></li>
+                            <li><a onclick="openExample('exampleNaherung')">Näherungssensor</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" onclick="installADB()"><i class="material-icons">airplay</i></a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -146,7 +146,7 @@
         </div>
     </div>
     <div class="fabRun" id="fabRun">
-        <a onclick="update()" class="btn btn-warning btn-fab btn-raised"><i class="material-icons">airplay</i></a>
+        <a onclick="update()" class="btn btn-warning btn-fab btn-raised"><i class="material-icons">play_arrow</i></a>
     </div>
 
     <script src="codemirror/lib/codemirror.js"></script>

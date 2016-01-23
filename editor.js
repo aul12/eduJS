@@ -11,6 +11,10 @@ var changed = false;
 
 var saveMode = false;
 
+function showSnackbar(text){
+    $.snackbar({content: text});
+}
+
 $(function(){
     $.material.init()
 
@@ -167,14 +171,18 @@ function downloadFile(){
 
 function saveDialog(){
     saveMode = true;
+    $("#dialogFrage").html("Wie soll das Projekt heißen?");
+    $("#inputFName").val("");
     if(fname == null)
         $('#modalFName').modal();
 }
 
 function openDialog(){
     saveMode = false;
-    if(fname == null)
-        $('#modalFName').modal();
+    $("#dialogFrage").html("Wie heißt das Projekt?");
+    fname = null;
+    $("#inputFName").val("");
+    $('#modalFName').modal();
 }
 
 function handleFile(mode) {
@@ -214,11 +222,13 @@ function handleFile(mode) {
     else{
         try {
             fs.readFile("./save/" + fname + "/ui.save", function (err, data) {
-                if (err) throw err;
+                if (err)
+                    showSnackbar(err);
                 editor.document.getBody().setHtml(String(data));
             });
             fs.readFile("./save/" + fname + "/js.save", function (err, data) {
-                if (err) throw err;
+                if (err)
+                    showSnackbar(err);
                 codeMirror.setValue(String(data));
             });
             $('a[href="#design"]').tab('show');
@@ -230,7 +240,33 @@ function handleFile(mode) {
     }
 }
 
-function openDevice(){
+function launchADB(){
+    //adb shell am start -a android.intent.action.VIEW -n org.mozilla.firefox/.App -d 'file:///sdcard/eduJS/exampleInput/index.html'
+
+    var client = adb.createClient();
+
+    client.listDevices()
+        .then(function(devices) {
+            return Promise.map(devices, function(device) {
+                return client.shell(device.id, "am start -a android.intent.action.VIEW -n org.mozilla.firefox/.App -d 'file:///sdcard/eduJS/"+fname+"/index.html'")
+                    // Use the readAll() utility to read all the content without
+                    // having to deal with the events. `output` will be a Buffer
+                    // containing all the output.
+                    .then(adb.util.readAll)
+                    .then(function(output) {
+                        console.log('[%s] %s', device.id, output.toString().trim())
+                    })
+            })
+        })
+        .then(function() {
+            showSnackbar('Erfolgreich gestartet')
+        })
+        .catch(function(err) {
+            showSnackbar('Fehler:', err.stack)
+        });
+}
+
+function installADB(){
     saveMode = 1;
     handleFile();
     var client = adb.createClient();
@@ -254,9 +290,11 @@ function openDevice(){
                                 console.log('[%s] Push complete', device.id);
                                 resolve();
                                 clearTimeout(timeout);
-                                $.snackbar({content: 'Erfolgreich installiert!'});
+                                showSnackbar('Erfolgreich installiert!');
+                                launchADB();
+
                             });
-                            transfer.on('error', reject)
+                            transfer.on('error', reject);
                         })
                     })
             })
@@ -267,48 +305,8 @@ function openDevice(){
         .catch(function(err) {
             $.snackbar({content: 'Fehler beim Installieren: '+err});
             console.log(err);
-        })
-
-    //adb shell am start -a android.intent.action.VIEW -n org.mozilla.firefox/.App -d 'file:///sdcard/eduJS/exampleInput/index.html'
-
-
-    client.listDevices()
-        .then(function(devices) {
-            return Promise.map(devices, function(device) {
-                return client.shell(device.id, "am start -a android.intent.action.VIEW -n org.mozilla.firefox/.App -d 'file:///sdcard/eduJS/exampleInput/index.html'")
-                    // Use the readAll() utility to read all the content without
-                    // having to deal with the events. `output` will be a Buffer
-                    // containing all the output.
-                    .then(adb.util.readAll)
-                    .then(function(output) {
-                        console.log('[%s] %s', device.id, output.toString().trim())
-                    })
-            })
-        })
-        .then(function() {
-            console.log('Done.')
-        })
-        .catch(function(err) {
-            console.error('Something went wrong:', err.stack)
         });
 
-        client.listDevices()
-        .then(function(devices) {
-            return Promise.map(devices, function(device) {
-                return client.shell(device.id, 'echo $RANDOM')
-                    // Use the readAll() utility to read all the content without
-                    // having to deal with the events. `output` will be a Buffer
-                    // containing all the output.
-                    .then(adb.util.readAll)
-                    .then(function(output) {
-                        showSnackbar('[%s] %s', device.id, output.toString().trim())
-                    })
-            })
-        })
-        .then(function() {
-            showSnackbar('Done.')
-        })
-        .catch(function(err) {
-            showSnackbar('Something went wrong:', err.stack)
-        })
+
+
 }

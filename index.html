@@ -21,24 +21,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="modal fade" id="modalFName">
+    <!--Save-Dialog-->
+    <div class="modal fade" id="modalSave">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="dialogFrage">Wie soll das Projekt heißen?</h4>
+                    <h4 class="modal-title">Wie soll das Projekt heißen?</h4>
                 </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control" id="inputFName" placeholder="Projektname">
+                    <input type="text" class="form-control" id="inputFNameSave" placeholder="Projektname">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="handleFile()">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnSave">Speichern</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <div class="modal fade" id="modalOpenFile">
+
+    <!--Open-Dialog-->
+    <div class="modal fade" id="modalOpen">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -46,15 +48,16 @@
                     <h4 class="modal-title">Wie heißt das Projekt?</h4>
                 </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control" id="inputFName" placeholder="Projektname">
+                    <input type="text" class="form-control" id="inputFNameOpen" placeholder="Projektname">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="handleFile()">Open Project</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnOpen">Öffnen</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+
     <div class="modal fade" id="modalPreview">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -89,10 +92,10 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Datei<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="saveDialog()">Speichern</a></li>
-                            <li><a onclick="openDialog()">Öffnen</a></li>
+                            <li><a id="menuSave">Speichern</a></li>
+                            <li><a data-toggle="modal" data-target="#modalOpen">Öffnen</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a onclick="fname=null;saveDialog()">Speichern als...</a></li></ul>
+                            <li><a data-toggle="modal" data-target="#modalOpen">Speichern als...</a></li></ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beispiele<span class="caret"></span></a>
@@ -114,7 +117,6 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="downloadLink" download='App.html' onmouseover="downloadFile()">App herunterladen</a></li>
                     <li><a href="#" onclick="installADB()">Auf Gerät laden</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -175,5 +177,7 @@
     <script src="snackbar/snackbar.min.js"></script>
 
     <script src="editor.js"></script>
+    <script src="save.js"></script>
+    <script src="adb.js"></script>
 </body>
 </html>

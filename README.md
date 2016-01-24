@@ -123,6 +123,7 @@ Clear the content of the textarea.
 
 
 ###Acceleration
+The acceleration sensor measures the acceleration in all three axis (relative to the device). The value is available with and without gravity compensation.
 ```javascript
 acceleration.start(function(accelerationWithoutGravity, accelerationWithGravity){
     doSomething(accelerationWithoutGravity.x);
@@ -131,6 +132,7 @@ acceleration.start(function(accelerationWithoutGravity, accelerationWithGravity)
 Start the acceleration sensor, the function is called everytime there is a new value. The acceleration object contain a x,z and z axis.
 
 ###Light
+The light sensor measures the brightness at the light sensor, larger values means brighter.
 ```javascript
 light.start(function(brightness){
     doSomething(brightness);
@@ -139,6 +141,7 @@ light.start(function(brightness){
 Start the light sensor, the function is called everytime the brightness changes.
 
 ###Location
+The location module calculates the position by using the mobile-network, wifi and gps.
 ```javascript
 gps.start(function(lat, lon){
     doSomething(lat);
@@ -147,6 +150,7 @@ gps.start(function(lat, lon){
 Start the gps, the function is called everytime the position changes.
 
 ###Orientation
+The orientation sensor measures the absolute position of the device in three axis.
 ```javascript
 orienation.start(function(x,y,z){
     doSomething(x);
@@ -155,6 +159,7 @@ orienation.start(function(x,y,z){
 Start the orientation sensor, the function is called everytime the orientation changes.
 
 ###Proximity
+The proximity sensor measures if it is covered or not (the value is boolean)
 ```javascript
 proximity.start(function(distance){
     doSomething(distance);

@@ -41,3 +41,8 @@ electron .
 ```
 electron-packager . eduJS --platform=[linux/win32/darwin] --arch=[ia32/x64] --version=0.34.1
 ```
+to minify the program before compiling add 
+```
+--asar
+``` 
+

@@ -1,5 +1,8 @@
 #eduJs
-A simple WYSIWYG HTML editor with a JS backend for creating simple webapps using HTML5 and Javascript. Mainly for educational purpose.
+A simple WYSIWYG editor for creating webapps using HTML5 and Javascript. Mainly for educational purposes.
+
+##Download
+[https://drive.google.com/drive/folders/0B29a5uCfArWGdVVSMVZ1MXlIOVE](https://drive.google.com/drive/folders/0B29a5uCfArWGdVVSMVZ1MXlIOVE)
 
 ##Dependencies
 * [http://electron.atom.io/](http://electron.atom.io/)

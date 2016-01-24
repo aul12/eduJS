@@ -24,8 +24,10 @@
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/acceleration.js"></script>
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/proximity.js"></script>
 <script src="https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensor/light.js"></script>
-<script src='https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js'></script>
-<script type='text/javascript'>buttonAdd= new Button('buttonAdd');input= new Input('input');buttonDelete= new Button('buttonDelete');textarea= new TextArea('textarea');window.onload = function(){buttonAdd.onClick(function(){
+<script src='https://cdn.rawgit.com/aul12/Simple-HTML-Editor/master/framework/sensorObjects.js'></script><script type='text/javascript'>
+    document.onerror=function(error, url, line){
+        showSnackbar('Fehler: "'+error+'" in Zeile '+line);
+    };buttonAdd= new Button('buttonAdd');input= new Input('input');buttonDelete= new Button('buttonDelete');textarea= new TextArea('textarea');window.onload = function(){buttonAdd.onClick(function(){
   var text = input.getText();
   textarea.addLine(text);
 });

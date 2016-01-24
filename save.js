@@ -73,6 +73,12 @@ $("#btnSave").click(function(){
 
 });
 
+$("#menuNew").click(function(){
+    fname = null;
+    editor.document.getBody().setHtml("");
+    codeMirror.setValue("");
+});
+
 function openExample(name){
     fname = name;
 

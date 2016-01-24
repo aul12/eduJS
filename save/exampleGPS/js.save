@@ -4,7 +4,7 @@ button.onClick(function(){
   gps.start(function(lat, lon){
     output.clear();
     output.addLine("Position:");
-    output.addLine("Langitude: "+lat);
+    output.addLine("Latitude: "+lat);
     output.addLine("Longitude: "+lon);
   });
 });

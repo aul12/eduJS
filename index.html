@@ -9,15 +9,22 @@
     <link rel="stylesheet" href="codemirror/addon/hint/show-hint.css">
     <link rel="stylesheet" href="codemirror/theme/material.css">
     <link rel="stylesheet" href="codemirror/addon/lint/lint.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
-    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Material Design fonts -->
-    <link rel="stylesheet" href="fonts/roboto.css" type="text/css">
-    <link href="fonts/material-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="snackbar/snackbar.min.css">
-    <link rel="stylesheet" href="snackbar/material.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Bootstrap Material Design -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/css/bootstrap-material-design.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/css/ripples.min.css" rel="stylesheet">
+
+    <!-- Snackbar.js-->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/snackbarjs/master/themes-css/material.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/snackbarjs/master/themes-css/material.css">
+
+    <!-- Custom Styles-->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -82,11 +89,11 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-group" id="formDevice">
-                        <div class="radio radio-primary">
+                       <!-- <div class="radio radio-primary">
                             <label>
                                 <input name="radioDevice" id="optionsRadios1" value="adb"  type="radio"> Android (ADB)
                             </label>
-                        </div>
+                        </div>-->
                         <div class="radio radio-primary">
                             <label>
                                 <input name="radioDevice" id="optionsRadios2" value="preview" checked type="radio"> Vorschau
@@ -177,6 +184,7 @@
         <a data-toggle="modal" data-target="#modalRun" class="btn btn-warning btn-fab btn-raised"><i class="material-icons">play_arrow</i></a>
     </div>
 
+    <!--Code Mirror-->
     <script src="codemirror/lib/codemirror.js"></script>
     <script src="codemirror/addon/hint/show-hint.js"></script>
     <script src="codemirror/addon/hint/javascript-hint.js"></script>
@@ -191,18 +199,16 @@
     <script src="codemirror/addon/lint/javascript-lint.js"></script>
     <script src="codemirror/addon/selection/active-line.js"></script>
 
+    <!-- CK-Editor-->
     <script src="ckeditor/ckeditor.js"></script>
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript">
-        try {
-            $ = jQuery = module.exports;
-        } catch(e) {}
-    </script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
-    <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
-    <script src="snackbar/snackbar.min.js"></script>
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <<!-- Bootstrap Material Design -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/js/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/js/ripples.min.js"></script>
 
     <script src="editor.js"></script>
     <script src="save.js"></script>

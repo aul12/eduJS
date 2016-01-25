@@ -152,7 +152,7 @@ Start the gps, the function is called everytime the position changes.
 ###Orientation
 The orientation sensor measures the absolute position of the device in three axis.
 ```javascript
-orienation.start(function(x,y,z){
+orientation.start(function(x,y,z){
     doSomething(x);
 });
 ```

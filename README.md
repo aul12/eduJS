@@ -1,13 +1,13 @@
-#eduJs
+# eduJs
 A simple WYSIWYG editor for creating webapps using HTML5 and Javascript. Mainly for educational purposes.
 
 Available on:
 [http://edujs.bplaced.net/](http://edujs.bplaced.net/)
 
-##Framework
+## Framework
 The editor uses it's own framework to simplify development. It provides an API for all core UI-Elements and all sensors with a firefox API.
 
-###Button
+### Button
 ```javascript
 button.setText("ABC")
 ```
@@ -20,7 +20,7 @@ button.onClick(function(){
 ```
 Event listener, the function is called everytime the button is clicked.
 
-###Image
+### Image
 ```javascript
 image.setSRC("folder/to/image.jpg")
 ```
@@ -31,7 +31,7 @@ image.rotate(90)
 ```
 Rotate an image by a certain angle from the current position.
 
-###Input
+### Input
 ```javascript
 input.setText("ABC");
 ```
@@ -41,19 +41,19 @@ var text = input.getText();
 ```
 Get the content of an input.
 
-###Label
+### Label
 ```javascript
 label.setText("ABC");
 ```
 Set the text of the label as ABC.
 
-###Snackbar
+### Snackbar
 ```javascript
 showSnackbar("ABC");
 ```
 Show a small notification at the bottom of the screen with the Text ABC.
 
-###Textarea
+### Textarea
 ```javascript
 textArea.addLine("ABC")
 ```
@@ -80,7 +80,7 @@ textArea.clear();
 Clear the content of the textarea.
 
 
-###Acceleration
+### Acceleration
 The acceleration sensor measures the acceleration in all three axis (relative to the device). The value is available with and without gravity compensation.
 ```javascript
 acceleration.start(function(accelerationWithoutGravity, accelerationWithGravity){
@@ -89,7 +89,7 @@ acceleration.start(function(accelerationWithoutGravity, accelerationWithGravity)
 ```
 Start the acceleration sensor, the function is called everytime there is a new value. The acceleration object contain a x,z and z axis.
 
-###Light
+### Light
 The light sensor measures the brightness at the light sensor, larger values means brighter.
 ```javascript
 light.start(function(brightness){
@@ -98,7 +98,7 @@ light.start(function(brightness){
 ```
 Start the light sensor, the function is called everytime the brightness changes.
 
-###Location
+### Location
 The location module calculates the position by using the mobile-network, wifi and gps.
 ```javascript
 gps.start(function(lat, lon){
@@ -107,7 +107,7 @@ gps.start(function(lat, lon){
 ```
 Start the gps, the function is called everytime the position changes.
 
-###Orientation
+### Orientation
 The orientation sensor measures the absolute position of the device in three axis.
 ```javascript
 orientation.start(function(x,y,z){
@@ -116,7 +116,7 @@ orientation.start(function(x,y,z){
 ```
 Start the orientation sensor, the function is called everytime the orientation changes.
 
-###Proximity
+### Proximity
 The proximity sensor measures if it is covered or not (the value is boolean)
 ```javascript
 proximity.start(function(distance){

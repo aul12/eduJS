@@ -1,9 +1,6 @@
 # eduJs
 A simple WYSIWYG editor for creating webapps using HTML5 and Javascript. Mainly for educational purposes.
 
-Available on:
-[http://edujs.bplaced.net/](http://edujs.bplaced.net/)
-
 ## Framework
 The editor uses it's own framework to simplify development. It provides an API for all core UI-Elements and all sensors with a firefox API.
 
